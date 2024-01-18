@@ -1,0 +1,185 @@
+/* Globals */
+
+#root {
+  display: flex;
+  --grey: #44454f;
+  --lightGrey: #afb1c0;
+  --almond: #ffeeca;
+  --sunray: #ebc060;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #cbcbcb;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+}
+
+h1 {
+  margin-bottom: 15px;
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--sunray);
+}
+
+h2 {
+  font-size: 26px;
+  color: var(--grey);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+  text-transform: uppercase;
+}
+
+p {
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+a,
+a:link,
+a:hover,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
+/* Main layout */
+
+.landing,
+.favs {
+  display: none;
+  padding: 30px 30px 0;
+}
+
+.landing.active,
+.favs.active {
+  display: block;
+}
+
+.recipes-daily,
+.recipes-explore,
+.recipes-fav {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: 20px 0 40px;
+}
+
+.sidebar {
+  width: 120px;
+  min-height: 100svh;
+  min-height: 100vh;
+  flex-shrink: 0;
+  background-color: var(--almond);
+}
+
+.tab {
+  position: fixed;
+  width: 120px;
+  height: 100px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.tab.land-btn {
+  top: 125px;
+}
+
+.tab.fav-btn {
+  top: 250px;
+}
+
+.tab.land-btn::before {
+  content: '';
+  position: absolute;
+  width: 120px;
+  height: 100px;
+  background-image: url('./assets/svg/menu_landing.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.2s ease-out;
+}
+
+.tab.fav-btn::before {
+  content: '';
+  position: absolute;
+  width: 120px;
+  height: 100px;
+  background-image: url('./assets/svg/menu_favorite.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.2s ease-out;
+}
+
+.tab.land-btn:hover::before,
+.tab.fav-btn:hover::before {
+  transform: scale(1.15);
+}
+
+.tab.active {
+  background-color: #fff;
+}
+
+.recipe-add-btn {
+  position: absolute;
+  top: 35px;
+  right: 35px;
+  width: max-content;
+}
+
+.overlay {
+  display: flex;
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(1px);
+  z-index: 1;
+  transition: 0.2s;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.error-div {
+  margin: 20px;
+}

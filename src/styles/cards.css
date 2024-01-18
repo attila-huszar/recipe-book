@@ -1,0 +1,124 @@
+.recipe-card {
+  position: relative;
+  overflow: hidden;
+  width: 350px;
+  height: 200px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.recipe-card::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  z-index: -1;
+  background-image: url('../assets/images/card_bg.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.2s ease-out;
+}
+
+.recipe-card:hover::before,
+.recipe-card:focus::before {
+  transform: scale(1.1);
+}
+
+.card-btn {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  transition: all 0.2s ease-out;
+}
+
+.recipe-bookmark-btn {
+  left: 20px;
+  top: 20px;
+  background-color: rgba(68, 69, 79, 0.1);
+  background-image: url('../assets/svg/favorite_white.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.recipe-edit-btn {
+  right: 90px;
+  top: 20px;
+  background-color: rgba(68, 69, 79, 0.1);
+  background-image: url('../assets/svg/edit_white.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.recipe-delete-btn {
+  right: 20px;
+  top: 20px;
+  background-color: rgba(68, 69, 79, 0.1);
+  background-image: url('../assets/svg/delete_white.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.recipe-bookmark-btn.active,
+.detail-bookmark-btn.active,
+.recipe-bookmark-btn:hover,
+.detail-bookmark-btn:hover {
+  background-color: var(--almond);
+  background-image: url('../assets/svg/favorite_yellow.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.recipe-bookmark-btn.active:hover,
+.detail-bookmark-btn.active:hover {
+  background-color: rgba(68, 69, 79, 0.1);
+  background-image: url('../assets/svg/favorite_white.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.recipe-edit-btn:hover,
+.detail-edit-btn:hover {
+  background-color: rgba(64, 223, 147, 0.15);
+  background-image: url('../assets/svg/edit_green.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.recipe-delete-btn:hover,
+.detail-delete-btn:hover {
+  background-color: rgba(255, 0, 0, 0.1);
+  background-image: url('../assets/svg/delete_red.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.recipe-name {
+  position: absolute;
+  left: 20px;
+  bottom: 40px;
+  font-size: 20px;
+  color: var(--grey);
+  pointer-events: none;
+}
+
+.recipe-ingredients {
+  position: absolute;
+  left: 20px;
+  bottom: 16px;
+  font-size: 14px;
+  color: var(--grey);
+  pointer-events: none;
+}
+
+.recipe-time {
+  position: absolute;
+  right: 20px;
+  bottom: 16px;
+  font-size: 14px;
+  color: var(--grey);
+  pointer-events: none;
+}

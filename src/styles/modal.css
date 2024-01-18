@@ -1,0 +1,238 @@
+.modal {
+  display: none;
+  position: fixed;
+  width: max-content;
+  max-height: 800px;
+  padding: 30px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 10px;
+  z-index: 2;
+  overflow-y: auto;
+}
+
+.modal.active {
+  display: block;
+}
+
+.modal-title {
+  margin-top: 5px;
+  text-align: center;
+}
+
+.modal-btns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.modal-btn {
+  padding: 12px 22px;
+  border-style: none;
+  border-radius: 10px;
+  color: #fff;
+  background-color: #ffce60;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease-out;
+}
+
+.modal-btn:hover {
+  background-color: #ffb000;
+}
+
+.modal-close-btn,
+.modal-delete-close-btn {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: rgba(68, 69, 79, 0);
+  background-image: url('../assets/svg/close_grey.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background 0.2s ease-out;
+}
+
+.modal-close-btn:hover,
+.modal-delete-close-btn:hover {
+  background-color: rgba(68, 69, 79, 0.1);
+}
+
+.modal-delete-btns {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 38px 0 0;
+}
+
+.modal-delete-btn-no {
+  color: var(--lightGrey);
+  background-color: rgba(68, 69, 79, 0.1);
+}
+
+.modal-delete-btn-no:hover {
+  color: #999ba8;
+  background-color: rgba(68, 69, 79, 0.25);
+}
+
+.modal-del-text {
+  margin-top: 26px;
+  text-align: center;
+  color: var(--lightGrey);
+  font-size: 18px;
+}
+
+.modal-form {
+  display: grid;
+  grid-template-areas:
+    'nameLabel timeLabel timeLabel .'
+    'name time time timeunit'
+    'descriptionLabel . . .'
+    'description description description description'
+    'ingredientsLabel quantityLabel quantityLabel .'
+    'ingredients ingredients ingredients ingredients';
+  grid-template-columns: 400px 65px 105px 50px;
+  column-gap: 10px;
+}
+
+.form-name-label {
+  grid-area: nameLabel;
+  margin-top: 20px;
+}
+
+.form-time-label {
+  grid-area: timeLabel;
+  margin-top: 20px;
+}
+
+.form-name {
+  grid-area: name;
+  margin-right: 30px;
+}
+
+.form-time {
+  grid-area: time;
+}
+
+.form-time-unit {
+  grid-area: timeunit;
+  justify-self: end;
+  align-self: center;
+}
+
+.form-description-label {
+  grid-area: descriptionLabel;
+  margin-top: 30px;
+}
+
+.form-description {
+  grid-area: description;
+  height: 104px;
+}
+
+.form-ingredients-label {
+  grid-area: ingredientsLabel;
+  margin-top: 30px;
+}
+
+.form-quantity-label {
+  grid-area: quantityLabel;
+  margin-top: 30px;
+}
+
+.form-ingredients {
+  grid-area: ingredients;
+  display: grid;
+  grid-template-columns: subgrid;
+  row-gap: 10px;
+  margin-bottom: 20px;
+}
+
+.select-ingredient {
+  margin-right: 30px;
+}
+
+label {
+  margin-left: 6px;
+  margin-bottom: 6px;
+}
+
+input,
+textarea,
+select {
+  padding: 9px;
+  font-size: 18px;
+  border: 2px solid rgba(175, 177, 192, 0.5);
+  border-radius: 10px;
+  color: var(--grey);
+  background-color: #fff;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+  resize: none;
+}
+
+input:hover,
+input:active,
+textarea:hover,
+textarea:active,
+select:hover,
+select:active {
+  border-color: var(--lightGrey);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--grey);
+}
+
+select {
+  padding-right: 35px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-image: url('../assets/svg/chevron_down.svg');
+  background-position: right 14px center;
+  background-repeat: no-repeat;
+}
+
+.form-delete-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: rgba(68, 69, 79, 0.1);
+  background-image: url('../assets/svg/delete_grey.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background 0.2s ease-out;
+}
+
+.form-delete-btn:hover {
+  background-color: rgba(255, 0, 0, 0.1);
+  background-image: url('../assets/svg/delete_red.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.form-delete-btn:nth-child(4) {
+  visibility: hidden;
+}
+
+.form-add-ingredient {
+  display: contents;
+  color: var(--sunray);
+  font-size: 18px;
+  cursor: pointer;
+}

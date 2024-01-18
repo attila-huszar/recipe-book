@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipes Book</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet" />
+    <link type="text/css" href="src/index.css" />
+    <script defer type="text/plain" src="src/index.js"></script>
+  </head>
+
+  <body>
+    <div id="root">
+      <div class="overlay"></div>
+
+      <aside class="sidebar">
+        <div class="tab land-btn active"></div>
+        <div class="tab fav-btn"></div>
+      </aside>
+
+      <main class="landing active">
+        <h1>Recipes</h1>
+        <button class="modal-btn recipe-add-btn">+ Add new recipe</button>
+        <h2>Recipe of the day</h2>
+        <div class="recipes-daily"></div>
+        <h2>Explore recipes</h2>
+        <div class="recipes-explore"></div>
+      </main>
+
+      <main class="favs">
+        <h1>Favorite Recipes</h1>
+        <div class="recipes-fav"></div>
+      </main>
+
+      <aside class="drawer">
+        <div class="drawer-close-btn"></div>
+        <div class="drawer-bg"></div>
+        <div class="drawer-content"></div>
+      </aside>
+
+      <section class="modal">
+        <div class="modal-close-btn"></div>
+        <h2 class="modal-title"></h2>
+
+        <form class="modal-form">
+          <label class="form-name-label">Name of recipe</label>
+          <input class="form-name" type="text" />
+
+          <label class="form-time-label">Cooking time</label>
+          <input class="form-time" type="text" />
+          <div class="form-time-unit">min</div>
+
+          <label class="form-description-label">Description</label>
+          <textarea class="form-description" maxlength="256"></textarea>
+
+          <label class="form-ingredients-label">Ingredients</label>
+          <label class="form-quantity-label">Quantity</label>
+          <div class="form-ingredients"></div>
+        </form>
+
+        <div class="modal-btns">
+          <button type="button" class="form-add-ingredient">
+            + Add ingredient
+          </button>
+          <button type="button" class="modal-btn modal-submit-btn"></button>
+        </div>
+      </section>
+
+      <section class="modal modal-delete">
+        <div class="modal-delete-close-btn"></div>
+        <h2 class="modal-title">Confirmation</h2>
+        <p class="modal-del-text">
+          Are you sure you want to delete this recipe?
+        </p>
+        <div class="modal-delete-btns">
+          <button class="modal-btn modal-delete-btn-no">Cancel</button>
+          <button class="modal-btn modal-delete-btn-yes">Yes, Delete</button>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
