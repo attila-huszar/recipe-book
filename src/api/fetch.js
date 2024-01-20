@@ -1,5 +1,5 @@
-const RECIPES_URL = 'http://localhost:3000/recipes'
-const INGREDIENTS_URL = 'http://localhost:3000/ingredients'
+const RECIPES_URL = process.env.RECIPES_URL
+const INGREDIENTS_URL = process.env.INGREDIENTS_URL
 
 export async function fetchData(url, options) {
   try {

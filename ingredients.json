@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "name": "Flour"
+  },
+  {
+    "id": 2,
+    "name": "Sugar"
+  },
+  {
+    "id": 3,
+    "name": "Butter"
+  },
+  {
+    "id": 4,
+    "name": "Chicken breast"
+  },
+  {
+    "id": 5,
+    "name": "Breadcrumbs"
+  },
+  {
+    "id": 6,
+    "name": "Tomato sauce"
+  },
+  {
+    "id": 7,
+    "name": "Romaine lettuce"
+  },
+  {
+    "id": 8,
+    "name": "Croutons"
+  },
+  {
+    "id": 9,
+    "name": "Caesar dressing"
+  },
+  {
+    "id": 11,
+    "name": "Milk"
+  },
+  {
+    "id": 12,
+    "name": "Eggs"
+  },
+  {
+    "id": 13,
+    "name": "Spaghetti"
+  },
+  {
+    "id": 14,
+    "name": "Ground beef"
+  },
+  {
+    "id": 15,
+    "name": "Tomatoes"
+  },
+  {
+    "id": 16,
+    "name": "Vegetable broth"
+  },
+  {
+    "id": 17,
+    "name": "Garlic"
+  },
+  {
+    "id": 18,
+    "name": "Avocado"
+  },
+  {
+    "id": 19,
+    "name": "Lime juice"
+  },
+  {
+    "id": 20,
+    "name": "Onion"
+  },
+  {
+    "id": 21,
+    "name": "Salmon fillet"
+  },
+  {
+    "id": 22,
+    "name": "Lemon"
+  },
+  {
+    "id": 23,
+    "name": "Herbs"
+  },
+  {
+    "id": 24,
+    "name": "Greek yogurt"
+  },
+  {
+    "id": 25,
+    "name": "Granola"
+  },
+  {
+    "id": 26,
+    "name": "Mixed berries"
+  },
+  {
+    "id": 28,
+    "name": "Mozzarella"
+  },
+  {
+    "id": 29,
+    "name": "Basil"
+  },
+  {
+    "id": 30,
+    "name": "Assorted vegetables"
+  },
+  {
+    "id": 31,
+    "name": "Soy sauce"
+  },
+  {
+    "id": 32,
+    "name": "Vegetable oil"
+  },
+  {
+    "id": 33,
+    "name": "Mangoes"
+  },
+  {
+    "id": 34,
+    "name": "Red onion"
+  },
+  {
+    "id": 36,
+    "name": "Salt"
+  }
+]
