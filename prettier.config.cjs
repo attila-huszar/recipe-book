@@ -1,7 +1,8 @@
-module.exports = {
+const config = {
   endOfLine: 'lf',
   tabWidth: 2,
   semi: false,
   singleQuote: true,
-  bracketSameLine: true,
 }
+
+module.exports = config
