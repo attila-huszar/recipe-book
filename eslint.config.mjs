@@ -1,12 +1,11 @@
 import js from '@eslint/js'
-import configPrettier from 'eslint-config-prettier'
-import pluginPrettier from 'eslint-plugin-prettier'
-import pluginImportX from 'eslint-plugin-import-x'
+import prettier from 'eslint-plugin-prettier'
+import prettierConfig from 'eslint-config-prettier'
 import globals from 'globals'
 
 export default [
   js.configs.recommended,
-  configPrettier,
+  prettierConfig,
   {
     ignores: ['dist/'],
   },
@@ -18,11 +17,9 @@ export default [
       },
     },
     plugins: {
-      'import-x': pluginImportX,
-      prettier: pluginPrettier,
+      prettier,
     },
     rules: {
-      'import-x/no-unresolved': 'error',
       'prettier/prettier': 'warn',
     },
     linterOptions: {
