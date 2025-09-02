@@ -1,7 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const Dotenv = require('dotenv-webpack')
 
 module.exports = {
   entry: {
@@ -43,9 +42,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'index.html'),
       favicon: 'public/favicon.svg',
-    }),
-    new Dotenv({
-      systemvars: true,
     }),
     new CopyWebpackPlugin({
       patterns: [{ from: 'public', to: '.' }],
