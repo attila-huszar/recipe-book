@@ -1,7 +1,7 @@
 import * as q from './query'
 import { populateDrawer } from '../components/drawer'
 import { displayCards } from '../components/cards'
-import { deleteRecipe } from '../api/fetch'
+import { dataService } from '../api/dataService'
 
 export function openDrawer(recipe) {
   populateDrawer(recipe)
@@ -21,10 +21,15 @@ let deleteEventHandler
 export function openModalDelete(id) {
   q.overlay.classList.add('active')
   q.modalDelete.classList.add('active')
-  deleteEventHandler = () => {
-    deleteRecipe(id)
-    displayCards()
-    closeModalDelete()
+  deleteEventHandler = async () => {
+    try {
+      await dataService.deleteRecipe(id)
+      displayCards()
+      closeModalDelete()
+    } catch (error) {
+      console.error('Failed to delete recipe:', error)
+      alert('Failed to delete recipe. Please try again.')
+    }
   }
   q.modalDeleteBtnYes.addEventListener('click', deleteEventHandler)
   q.modalDeleteBtnNo.addEventListener('click', closeModalDelete)

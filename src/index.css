@@ -120,6 +120,10 @@ a:active {
   top: 250px;
 }
 
+.tab.settings-btn {
+  top: 375px;
+}
+
 .tab.land-btn::before {
   content: '';
   position: absolute;
@@ -142,8 +146,21 @@ a:active {
   transition: transform 0.2s ease-out;
 }
 
+.tab.settings-btn::before {
+  content: '';
+  position: absolute;
+  width: 120px;
+  height: 100px;
+  background-image: url('./assets/svg/import.svg');
+  background-size: 42px;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.2s ease-out;
+}
+
 .tab.land-btn:hover::before,
-.tab.fav-btn:hover::before {
+.tab.fav-btn:hover::before,
+.tab.settings-btn:hover::before {
   transform: scale(1.15);
 }
 

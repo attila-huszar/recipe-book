@@ -1,6 +1,6 @@
 import '../styles/modal.css'
 import * as q from '../utils/query'
-import { addRecipe, editRecipe } from '../api/fetch'
+import { dataService } from '../api/dataService'
 import { ingredientsData, displayCards } from './cards'
 import { removeAllChildren } from '../utils/handlers'
 
@@ -83,7 +83,9 @@ function populateModal(recipe) {
     removeAllChildren(q.formIngredients)
 
     addIngredientsEvent(null)
-    submitType(addRecipe, null)
+    submitType(async (name, time, description, ingredients) => {
+      await dataService.addRecipe(name, time, description, ingredients)
+    }, null)
   } else if (recipe) {
     q.modalTitle.textContent = 'Editing Your Recipe'
     q.modalSubmitBtn.textContent = 'Edit Recipe'
@@ -95,7 +97,9 @@ function populateModal(recipe) {
     for (let i = 0; i < recipe.ingredients.length; i += 1) {
       addIngredientsEvent(i)
     }
-    submitType(editRecipe, recipe)
+    submitType(async (name, time, description, ingredients, id) => {
+      await dataService.editRecipe(name, time, description, ingredients, id)
+    }, recipe)
   }
 
   q.formAddIngredientBtn.addEventListener('click', addIngredientsEvent)
@@ -113,7 +117,7 @@ function createDropdown(htmlSelect, parent) {
 }
 
 function submitType(submitForm, recipe) {
-  addSubmitEvent = () => {
+  addSubmitEvent = async () => {
     const selectIngredientAll = document.querySelectorAll('.select-ingredient')
     const inputQuantityAll = document.querySelectorAll('.input-quantity')
     const selectQuantityUnitAll = document.querySelectorAll(
@@ -129,15 +133,20 @@ function submitType(submitForm, recipe) {
       })
     }
 
-    submitForm(
-      q.formRecipeName.value || 'New Recipe',
-      +q.formTime.value || 10,
-      q.formDescription.value,
-      newIngredients,
-      recipe?.id,
-    )
-    displayCards()
-    closeModal()
+    try {
+      await submitForm(
+        q.formRecipeName.value || 'New Recipe',
+        +q.formTime.value || 10,
+        q.formDescription.value,
+        newIngredients,
+        recipe?.id,
+      )
+      displayCards()
+      closeModal()
+    } catch (error) {
+      console.error('Failed to save recipe:', error)
+      alert('Failed to save recipe. Please try again.')
+    }
   }
 
   q.modalSubmitBtn.addEventListener('click', addSubmitEvent)

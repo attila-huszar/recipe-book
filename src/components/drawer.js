@@ -1,7 +1,7 @@
 import '../styles/drawer.css'
 import * as q from '../utils/query'
 import { displayCards, ingredientsData } from './cards'
-import { addFavorite, removeFavorite } from '../api/fetch'
+import { dataService } from '../api/dataService'
 import { openModal } from './modal'
 import {
   openModalDelete,
@@ -62,19 +62,28 @@ export function populateDrawer(recipe) {
     favoriteBtn.classList.add('active')
   }
 
-  favoriteBtn.addEventListener('click', (e) => {
+  favoriteBtn.addEventListener('click', async (e) => {
     e.stopPropagation()
-    if (e.target.classList.contains('active')) {
-      e.target.classList.remove('active')
+    const recipeId = +recipe.id
 
-      removeFavorite(+recipe.id)
-    } else {
-      e.target.classList.add('active')
+    try {
+      if (e.target.classList.contains('active')) {
+        e.target.classList.remove('active')
+        await dataService.removeFavorite(recipeId)
+      } else {
+        e.target.classList.add('active')
+        await dataService.addFavorite(recipeId)
+      }
 
-      addFavorite(+recipe.id)
+      displayCards()
+    } catch (error) {
+      console.error('Failed to update favorite status:', error)
+      if (e.target.classList.contains('active')) {
+        e.target.classList.remove('active')
+      } else {
+        e.target.classList.add('active')
+      }
     }
-
-    displayCards()
   })
 
   const editBtn = document.createElement('div')
