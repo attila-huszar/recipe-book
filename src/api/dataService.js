@@ -1,4 +1,4 @@
-import { indexedDBService } from './indexedDB.js'
+import { indexedDBService } from './indexedDB'
 
 class DataService {
   constructor() {
@@ -6,13 +6,23 @@ class DataService {
   }
 
   async loadRecipes() {
-    const response = await fetch('/recipes.json')
-    return await response.json()
+    try {
+      const response = await fetch('/recipes.json')
+      return await response.json()
+    } catch (error) {
+      console.error('Failed to load recipes:', error)
+      return []
+    }
   }
 
   async loadIngredients() {
-    const response = await fetch('/ingredients.json')
-    return await response.json()
+    try {
+      const response = await fetch('/ingredients.json')
+      return await response.json()
+    } catch (error) {
+      console.error('Failed to load ingredients:', error)
+      return []
+    }
   }
 
   async initialize() {

@@ -1,4 +1,3 @@
-import '../styles/drawer.css'
 import * as q from '../utils/query'
 import { displayCards, ingredientsData } from './cards'
 import { dataService } from '../api/dataService'
@@ -8,6 +7,7 @@ import {
   closeDrawer,
   removeAllChildren,
 } from '../utils/handlers'
+import '../styles/drawer.css'
 
 export function populateDrawer(recipe) {
   removeAllChildren(q.drawerContent)

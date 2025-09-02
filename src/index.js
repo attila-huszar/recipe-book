@@ -1,11 +1,11 @@
-import './index.css'
-import './styles/settings.css'
-import * as q from './utils/query'
+import { dataService } from './api/dataService'
 import { displayCards } from './components/cards'
 import { openModal, closeModal } from './components/modal'
-import { closeModalDelete, closeDrawer } from './utils/handlers'
-import { dataService } from './api/dataService'
 import { showSettings } from './components/settings'
+import { closeModalDelete, closeDrawer } from './utils/handlers'
+import * as q from './utils/query'
+import './index.css'
+import './styles/settings.css'
 
 let currentActiveTab = 'landing'
 

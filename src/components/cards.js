@@ -1,12 +1,12 @@
-import '../styles/cards.css'
-import * as q from '../utils/query'
 import { dataService } from '../api/dataService'
+import { openModal } from './modal'
 import {
   openDrawer,
   openModalDelete,
   removeAllChildren,
 } from '../utils/handlers'
-import { openModal } from './modal'
+import * as q from '../utils/query'
+import '../styles/cards.css'
 
 let ingredientsData = []
 

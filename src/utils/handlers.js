@@ -1,7 +1,7 @@
-import * as q from './query'
 import { populateDrawer } from '../components/drawer'
 import { displayCards } from '../components/cards'
 import { dataService } from '../api/dataService'
+import * as q from './query'
 
 export function openDrawer(recipe) {
   populateDrawer(recipe)

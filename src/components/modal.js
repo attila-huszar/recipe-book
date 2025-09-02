@@ -1,8 +1,8 @@
-import '../styles/modal.css'
 import * as q from '../utils/query'
 import { dataService } from '../api/dataService'
 import { ingredientsData, displayCards } from './cards'
 import { removeAllChildren } from '../utils/handlers'
+import '../styles/modal.css'
 
 let addSubmitEvent
 let addIngredientsEvent

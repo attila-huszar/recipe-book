@@ -1,5 +1,5 @@
-import { dataService } from '../api/dataService.js'
-import { restorePreviousTab } from '../index.js'
+import { dataService } from '../api/dataService'
+import { restorePreviousTab } from '../index'
 
 export function createSettingsModal() {
   const settingsModal = document.createElement('div')
