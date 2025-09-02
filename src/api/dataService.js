@@ -1,4 +1,4 @@
-import { indexedDBService } from './indexeddb.js'
+import { indexedDBService } from './indexedDB.js'
 
 class DataService {
   constructor() {
@@ -6,80 +6,13 @@ class DataService {
   }
 
   async loadRecipes() {
-    try {
-      const response = await fetch('/recipes.json')
-      if (!response.ok) {
-        console.warn('Could not load recipes.json, using fallback data')
-        return this.getFallbackRecipes()
-      }
-      return await response.json()
-    } catch (error) {
-      console.warn('Failed to load recipes.json, using fallback data:', error)
-      return this.getFallbackRecipes()
-    }
+    const response = await fetch('/recipes.json')
+    return await response.json()
   }
 
   async loadIngredients() {
-    try {
-      const response = await fetch('/ingredients.json')
-      if (!response.ok) {
-        console.warn('Could not load ingredients.json, using fallback data')
-        return this.getFallbackIngredients()
-      }
-      return await response.json()
-    } catch (error) {
-      console.warn('Failed to load ingredients.json, using fallback data:', error)
-      return this.getFallbackIngredients()
-    }
-  }
-
-  getFallbackRecipes() {
-    return [
-      {
-        id: 1,
-        name: 'Chocolate Chip Cookies',
-        description: 'Classic homemade chocolate chip cookies',
-        label: 'Dessert',
-        cookingTime: 15,
-        isFavorite: false,
-        isPopular: true,
-        ingredients: [
-          { ingredientId: 1, amount: 2, amountType: 'cup' },
-          { ingredientId: 2, amount: 1, amountType: 'cup' },
-          { ingredientId: 3, amount: 0.5, amountType: 'cup' },
-        ],
-      },
-      {
-        id: 2,
-        name: 'Caesar Salad',
-        description: 'Classic salad with romaine lettuce, croutons, and Caesar dressing',
-        label: 'Salad',
-        cookingTime: 10,
-        isFavorite: true,
-        isPopular: false,
-        ingredients: [
-          { ingredientId: 7, amount: 1, amountType: 'piece' },
-          { ingredientId: 8, amount: 1, amountType: 'cup' },
-          { ingredientId: 9, amount: 2, amountType: 'tablespoon' },
-        ],
-      },
-    ]
-  }
-
-  getFallbackIngredients() {
-    return [
-      { id: 1, name: 'Flour' },
-      { id: 2, name: 'Sugar' },
-      { id: 3, name: 'Butter' },
-      { id: 4, name: 'Chicken breast' },
-      { id: 5, name: 'Breadcrumbs' },
-      { id: 6, name: 'Tomato sauce' },
-      { id: 7, name: 'Romaine lettuce' },
-      { id: 8, name: 'Croutons' },
-      { id: 9, name: 'Caesar dressing' },
-      { id: 11, name: 'Milk' },
-      { id: 12, name: 'Eggs' },
-    ]
+    const response = await fetch('/ingredients.json')
+    return await response.json()
   }
 
   async initialize() {
