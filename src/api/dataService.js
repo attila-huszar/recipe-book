@@ -1,4 +1,4 @@
-import { indexedDBService } from './indexedDB'
+import { indexedDBService } from './indexed_db'
 
 class DataService {
   constructor() {
