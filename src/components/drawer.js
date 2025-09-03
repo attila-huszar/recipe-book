@@ -1,12 +1,12 @@
-import * as q from '../utils/query'
-import { displayCards, ingredientsData } from './cards'
 import { dataService } from '../api/dataService'
+import { displayCards, ingredientsData } from './cards'
 import { openModal } from './modal'
 import {
   openModalDelete,
   closeDrawer,
   removeAllChildren,
 } from '../utils/handlers'
+import * as q from '../utils/query'
 import '../styles/drawer.css'
 
 export function populateDrawer(recipe) {
